@@ -8,7 +8,10 @@ import (
 )
 
 func GetConfiguration()model.Config{
-	file, _ := os.Open("config/config.json")
+	file, fail := os.Open("config/config.json")
+	if fail != nil {
+		panic(fail.Error())
+	}
 	defer file.Close()
 	decoder := json.NewDecoder(file)
 	configuration := model.Config{}
