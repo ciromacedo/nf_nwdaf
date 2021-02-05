@@ -26,3 +26,12 @@ func GetServerPort()string{
 	ConfigPort := GetConfiguration().Port
 	return fmt.Sprintf("%s%d", ":", ConfigPort)
 }
+
+func GetMongoDBUri()string{
+	return GetConfiguration().MongoURI
+}
+
+func GetDBName()string{
+	dbName := GetConfiguration().DBName
+	return dbName
+}

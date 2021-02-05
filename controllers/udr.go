@@ -2,18 +2,18 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"nf_nwdaf/base"
 	"nf_nwdaf/model"
 )
 
-var Articles []model.Article
+var CollectionsInfo []model.CollectionInfo
 func DisplayCollections(w http.ResponseWriter, r *http.Request){
-	 	Articles = []model.Article{
-				model.Article{Title: "Hello", Desc: "Article Description", Content: "Article Content"},
-				model.Article{Title: "Hello 2", Desc: "Article Description", Content: "Article Content"},
+	//recupera o nome de todas as coleções
+	CollectionsName := base.GetCollectionsName()
+	for _, coll := range CollectionsName {
+		qtd, _ := base.GetNumberOfRecordsInCollection(coll)
+		CollectionsInfo = append(CollectionsInfo, model.CollectionInfo{NumberOfRecords: qtd, DocumentName: coll})
 	}
-
-	fmt.Println("Endpoint Hit: returnAllArticles")
-	json.NewEncoder(w).Encode(Articles)
+	json.NewEncoder(w).Encode(CollectionsInfo)
 }
