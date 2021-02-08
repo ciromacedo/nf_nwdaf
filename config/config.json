@@ -1,5 +1,5 @@
 {
   "Port": 5003,
-  "MongoURI" : "mongodb://db:27017",
+  "MongoURI" : "mongodb://db/free5gc",
   "DBName" : "free5gc"
 }
