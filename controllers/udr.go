@@ -7,9 +7,10 @@ import (
 	"nf_nwdaf/model"
 )
 
-var CollectionsInfo []model.CollectionInfo
+
 func DisplayCollections(w http.ResponseWriter, r *http.Request){
 	//recupera o nome de todas as coleções
+	var CollectionsInfo []model.CollectionInfo
 	CollectionsName := base.GetCollectionsName()
 	for _, coll := range CollectionsName {
 		qtd, _ := base.GetNumberOfRecordsInCollection(coll)

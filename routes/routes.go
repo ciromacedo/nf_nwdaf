@@ -7,5 +7,5 @@ import (
 
 func LoadRoutes() {
 	http.HandleFunc("/", controllers.Index)
-	http.HandleFunc("/udr/collections", controllers.DisplayCollections)
+	http.HandleFunc("/nwdaf/api/v1/udr/collections", controllers.DisplayCollections)
 }
