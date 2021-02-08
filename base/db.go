@@ -24,8 +24,8 @@ func GetConnection() (*mongo.Database, *mongo.Client, context.Context) {
 	return conn, client, ctx
 }
 
-var CollectionNames []string
 func GetCollectionsName()[]string {
+	var CollectionNames []string
 	db, client, ctx := GetConnection()
 	result, err := db.ListCollectionNames(context.TODO(), bson.D{})
 	if err != nil {
